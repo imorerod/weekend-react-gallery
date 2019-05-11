@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
+import GalleryList from '../GalleryList/GalleryList';
 
 class App extends Component {
   state = {
@@ -14,7 +15,7 @@ class App extends Component {
   }
 
   // GET the current gallery
-  getGallery() {
+  getGallery(event) {
     axios.get('/gallery')
       .then((response) => {
         console.log('response: ', response); // look at response on console
@@ -25,15 +26,23 @@ class App extends Component {
 
   }
 
+  updateLikes = (event) => {
+    axios.put(`/gallery/like/${this.state.id}`)
+      .then((response) => {
+        this.getGallery();
+      })
+  }
+
+  onLikeClick = (event) => {
+    console.log('Like', event.target.dataset.id);
+  }
 
 
   render() {
-    const elementArray = this.state.galleryItems.map((indvImage, index) => {
-      return <div key={index}>
-        <img src={indvImage.path}/> <br />
-        Description: {indvImage.description} <br />
-        Likes: {indvImage.likes}
-      </div>
+    const htmlList = this.state.galleryItems.map((image, index) => {
+      return (
+<GalleryList GalleryList={this.state.GalleryList} />
+      );
     });
 
     return (
@@ -43,7 +52,7 @@ class App extends Component {
         </header>
         <br />
         <p>Gallery goes here</p>
-        {elementArray}
+        {htmlList}
       </div>
     );
   }
