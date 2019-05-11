@@ -39,16 +39,6 @@ class App extends Component {
 
 
   render() {
-      return (
-        <div>
-        <GalleryList
-          GalleryList={this.state.GalleryList}
-          GalleryItem={this.onLikeClick}
-          />
-      </div>
-      );
-      
-
     return (
       <div className="App">
         <header className="App-header">
@@ -56,7 +46,9 @@ class App extends Component {
         </header>
         <br />
         <p>Gallery:</p>
-        {htmlList}
+        <GalleryList
+          GalleryList={this.state.GalleryList}
+          />
       </div>
     );
   }

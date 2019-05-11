@@ -12,9 +12,15 @@ class GalleryList extends Component {
                     <button data-id={this.props.image} onClick={this.props.onLikeClick} >Like!</button> <br />
                     Likes: {this.props.image.likes}
                 </div>
-            );
-}
-        )
+            )
+})
+
+return (
+    <div>
+        {htmlList}
+
+    </div>
+)
 }
 }
 
