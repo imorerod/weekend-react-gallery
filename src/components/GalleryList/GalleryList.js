@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import GalleryItem from '../GalleryItem/GalleryItem';
+// import GalleryItem from '../GalleryItem/GalleryItem';
 
 class GalleryList extends Component {
     render() {
@@ -8,7 +8,7 @@ class GalleryList extends Component {
         <img src={this.props.path}
         alt={this.props.description}/> <br />
         Description: {this.props.description} <br />
-        <button data-id={this.props.id} >Like!</button> <br />
+        <button data-id={this.props} onClick={this.props.onLikeClick} >Like!</button> <br />
         Likes: {this.props.likes}
       </div>
         )
@@ -16,12 +16,3 @@ class GalleryList extends Component {
 }
 
 export default GalleryList;
-
-
-
-
-
-
-
-
-
