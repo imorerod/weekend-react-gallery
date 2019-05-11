@@ -47,7 +47,7 @@ class App extends Component {
         <br />
         <p>Gallery:</p>
         <GalleryList
-          GalleryList={this.state.GalleryList}
+          GalleryList={this.state.galleryItems}
           />
       </div>
     );

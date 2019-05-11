@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 class GalleryList extends Component {
     render() {
-        const htmlList = this.props.galleryItems.map((image, index) => {
+        const htmlList = this.props.GalleryList.map((image, index) => {
             return (
                 <div key={this.props.image}>
                     <img src={this.props.image.path}
