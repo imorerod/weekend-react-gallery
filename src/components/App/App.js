@@ -39,14 +39,15 @@ class App extends Component {
 
 
   render() {
-    const htmlList = this.state.galleryItems.map((image, index) => {
       return (
+        <div>
         <GalleryList
           GalleryList={this.state.GalleryList}
           GalleryItem={this.onLikeClick}
           />
+      </div>
       );
-    });
+      
 
     return (
       <div className="App">
