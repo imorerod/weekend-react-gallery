@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
 import GalleryList from '../GalleryList/GalleryList';
+import GalleryItem from '../GalleryItem/GalleryItem;'
 
 class App extends Component {
   state = {
@@ -26,8 +27,8 @@ class App extends Component {
 
   }
 
-  updateLikes = (event) => {
-    axios.put(`/gallery/like/${this.state.id}`)
+  updateLikes (id) {
+    axios.put(`/gallery/like/${id}`)
       .then((response) => {
         this.getGallery();
       })
@@ -35,6 +36,8 @@ class App extends Component {
 
   onLikeClick = (event) => {
     console.log('Like', event.target.dataset.id);
+    const id = event.target.dataset.id;
+    this.updateLikes(id)
   }
 
 
@@ -48,7 +51,8 @@ class App extends Component {
         <p>Gallery:</p>
         <GalleryList
           GalleryList={this.state.galleryItems}
-          />
+          onLikeClick={this.onLikeClick}
+          GalleryItem={this.state.GalleryItem} />
       </div>
     );
   }
